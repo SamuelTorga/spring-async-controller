@@ -37,3 +37,46 @@ k6 run --env TEST_TYPE=sync --summary-export=sync-summary.json load-test.js
 
 running (3m30.0s), 000/100 VUs, 32708 complete and 0 interrupted iterations
 default ✓ [======================================] 000/100 VUs  3m30s
+
+
+After database load:
+
+k6 run --env TEST_TYPE=sync --summary-export=sync-summary.json load-test/load-test.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/
+
+     execution: local
+        script: load-test/load-test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 4m0s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 3m30s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+     ✓ syncRequest OK
+
+     checks.........................: 100.00% 11295 out of 11295
+     data_received..................: 41 MB   196 kB/s
+     data_sent......................: 1.1 MB  5.2 kB/s
+     http_req_blocked...............: avg=8.18µs   min=0s      med=0s    max=8.28ms  p(90)=0s      p(95)=0s       p(99)=519µs
+     http_req_connecting............: avg=4.37µs   min=0s      med=0s    max=872.8µs p(90)=0s      p(95)=0s       p(99)=0s
+     http_req_duration..............: avg=1.19s    min=18.33ms med=1.02s max=3.47s   p(90)=1.84s   p(95)=1.86s    p(99)=2.02s
+       { expected_response:true }...: avg=1.19s    min=18.33ms med=1.02s max=3.47s   p(90)=1.84s   p(95)=1.86s    p(99)=2.02s
+     http_req_failed................: 0.00%   0 out of 11295
+     http_req_receiving.............: avg=201.25µs min=0s      med=0s    max=5.21ms  p(90)=528.9µs p(95)=552.79µs p(99)=971.6µs
+     http_req_sending...............: avg=16.47µs  min=0s      med=0s    max=1.02ms  p(90)=0s      p(95)=0s       p(99)=526.1µs
+     http_req_tls_handshaking.......: avg=0s       min=0s      med=0s    max=0s      p(90)=0s      p(95)=0s       p(99)=0s
+     http_req_waiting...............: avg=1.19s    min=18.33ms med=1.02s max=3.47s   p(90)=1.84s   p(95)=1.86s    p(99)=2.02s
+     http_reqs......................: 11295   53.783849/s
+     iteration_duration.............: avg=1.19s    min=18.33ms med=1.02s max=3.47s   p(90)=1.84s   p(95)=1.86s    p(99)=2.02s
+     iterations.....................: 11295   53.783849/s
+     vus............................: 1       min=1              max=100
+     vus_max........................: 100     min=100            max=100
+
+
+running (3m30.0s), 000/100 VUs, 11295 complete and 0 interrupted iterations
+default ✓ [======================================] 000/100 VUs  3m30
