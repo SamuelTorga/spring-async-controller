@@ -5,10 +5,10 @@ const TEST_TYPE = __ENV.TEST_TYPE || 'sync';
 
 export const options = {
     stages: [
-        { duration: '30s', target: 50 },  // Ramp up to 50 users
-        { duration: '1m', target: 50 },   // Stay at 50 users for 1 minute
-        { duration: '30s', target: 100 }, // Ramp up to 100 users
-        { duration: '1m', target: 100 },  // Stay at 100 users for 1 minute
+        { duration: '30s', target: 250 },  // Ramp up to 50 users
+        { duration: '1m', target: 250 },   // Stay at 50 users for 1 minute
+        { duration: '30s', target: 500 }, // Ramp up to 100 users
+        { duration: '1m', target: 500 },  // Stay at 100 users for 1 minute
         { duration: '30s', target: 0 },   // Ramp down to 0 users
     ],
     summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(90)', 'p(95)', 'p(99)']
