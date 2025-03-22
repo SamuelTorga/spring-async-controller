@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Entity(name = "product")
 public class Product {
 
     @Id

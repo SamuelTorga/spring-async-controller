@@ -32,4 +32,15 @@ public class ProductController {
         return productService.listProductsAsync(pageable).thenApply(ResponseEntity::ok);
     }
 
+    @GetMapping("/products/query")
+    public ResponseEntity<Page<ProductResponse>> getProductsQuery(Pageable pageable) {
+        return ResponseEntity.ok(productService.listProductsQuery(pageable));
+    }
+
+    @GetMapping("/products/async/query")
+    public CompletableFuture<ResponseEntity<Page<ProductResponse>>> getProductsAsyncQuery(
+            Pageable pageable) {
+        return productService.listProductsAsyncQuery(pageable).thenApply(ResponseEntity::ok);
+    }
+
 }

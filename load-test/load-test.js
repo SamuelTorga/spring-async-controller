@@ -16,7 +16,7 @@ export const options = {
 
 export default function() {
     if (TEST_TYPE === 'sync') {
-        const response = http.get('http://localhost:8080/products?size=20');
+        const response = http.get('http://localhost:8080/products/query?size=20');
         try {
             check(response, {
                 'syncRequest OK': (res) => res.status === 200,
@@ -25,7 +25,7 @@ export default function() {
             fail(`Sync Request failed: ${e}`);
         }
     } else if (TEST_TYPE === 'async') {
-        const response = http.get('http://localhost:8080/products/async?size=20');
+        const response = http.get('http://localhost:8080/products/async/query?size=20');
         try {
             check(response, {
                 'asyncRequest OK': (res) => res.status === 200,

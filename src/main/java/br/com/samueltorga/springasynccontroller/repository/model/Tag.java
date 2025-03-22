@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Objects;
 
 
+@Entity
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Entity(name = "tag")
 public class Tag {
 
     @Id
